@@ -179,9 +179,9 @@ counter
 end 
 
 def play(board)
-  input = gets.chomp
   current_player(board)
- turn(board) until over?(board)
+  input = gets.chomp
+   turn(board) until over?(board)
   #turn
 #end
 
