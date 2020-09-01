@@ -50,8 +50,8 @@ def turn(board)
    move(board, index, current_player(board))
     display_board(board)
   else 
-    #turn(board)
-    user_input = gets.strip
+    turn(board)
+    #user_input = gets.strip
   end
 end
 
