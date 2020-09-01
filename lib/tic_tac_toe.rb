@@ -188,7 +188,7 @@ if won?(board)
   puts "Congratulations #{current_player(board)}!"
 else 
   if draw?(board)
-  puts prints "Cat\'s Game!"
+  puts "Cat\'s Game!"
 end
 end
 end
