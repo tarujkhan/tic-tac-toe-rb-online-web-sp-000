@@ -10,7 +10,7 @@ puts " #{board[6]} #{divider} #{board[7]} #{divider} #{board[8]} "
 end
 
 def position_taken?(board, index)
-  puts display_board(board)
+  #puts display_board(board)
   if board[index] == " "
     false
   elsif board[index] == ""
