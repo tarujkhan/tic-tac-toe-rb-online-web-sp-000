@@ -51,7 +51,7 @@ def turn(board)
     display_board(board)
   else 
     turn(board)
-    user_input = gets.strip
+    #user_input = gets.strip
   end
 end
 # def turn(board)
