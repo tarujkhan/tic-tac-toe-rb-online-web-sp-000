@@ -10,16 +10,16 @@ puts " #{board[6]} #{divider} #{board[7]} #{divider} #{board[8]} "
 end
 
 def position_taken?(board, index)
-  #puts display_board(board)
-  # if board[index] == " "
-  #   false
-  # elsif board[index] == ""
-  #   false 
-  # elsif board[index] == nil 
-  #   false 
-  board[index] == "X" || board[index] == "O"
-#     true
-# end
+  puts display_board(board)
+  if board[index] == " "
+    false
+  elsif board[index] == ""
+    false 
+  elsif board[index] == nil 
+    false 
+  elsif board[index] == "X" || board[index] == "O"
+    true
+end
 end
 
 def valid_move?(board, index)
@@ -44,20 +44,16 @@ end
 
 def turn(board)
   puts "Please enter 1-9:"
-    user_input = gets.strip
-    index = input_to_index(user_input)
-  while !valid_move?(board, index)
-    puts "Please enter 1-9:"
-    user_input = gets.strip
-    index = input_to_index(user_input)
-  end
-   move(board, index, current_player(board)) #move is valid
+  user_input = gets.strip
+  index = input_to_index(user_input)
+  if valid_move?(board, index)
+   move(board, index, current_player(board))
     display_board(board)
-  # else 
-  #   turn(board)
-    #user_input = gets.strip
+  else 
+    #turn(board)
+    user_input = gets.strip
   end
-
+end
 # def turn(board)
 #   puts "Please enter 1-9:"
 #   user_input = gets.strip
@@ -183,7 +179,7 @@ counter
 end 
 
 def play(board)
-    #input = gets.chomp
+    input = gets.chomp
    turn(board) until over?(board)
   #turn
 #end
