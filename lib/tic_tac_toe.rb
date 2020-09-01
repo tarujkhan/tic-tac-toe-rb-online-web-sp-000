@@ -10,17 +10,18 @@ puts " #{board[6]} #{divider} #{board[7]} #{divider} #{board[8]} "
 end
 
 def position_taken?(board, index)
-  puts display_board(board)
-  if board[index] == " "
-    false
-  elsif board[index] == ""
-    false 
-  elsif board[index] == nil 
-    false 
-  elsif board[index] == "X" || board[index] == "O"
-    true
+  # puts display_board(board)
+  # if board[index] == " "
+  #   false
+  # elsif board[index] == ""
+  #   false 
+  # elsif board[index] == nil 
+  #   false 
+ # elsif 
+  board[index] == "X" || board[index] == "O"
+   # true
 end
-end
+
 
 def valid_move?(board, index)
   #binding.pry
@@ -47,13 +48,30 @@ def turn(board)
   user_input = gets.strip
   index = input_to_index(user_input)
   if valid_move?(board, index)
-   move(board, index, token = "X")
+   move(board, index, current_player(board))
     display_board(board)
   else 
-    #turn(board)
-    user_input = gets.strip
+    turn(board)
+    #user_input = gets.strip
   end
 end
+
+def turn(board)
+  puts "Please enter 1-9:"
+    user_input = gets.strip
+    index = input_to_index(user_input)
+  while !valid_move?(board, index)
+    puts "Please enter 1-9:"
+    user_input = gets.strip
+    index = input_to_index(user_input)
+  end
+   move(board, index, current_player(board)) #move is valid
+    display_board(board)
+  # else 
+  #   turn(board)
+    #user_input = gets.strip
+  end
+
 # def turn(board)
 #   puts "Please enter 1-9:"
 #   user_input = gets.strip
@@ -179,15 +197,15 @@ counter
 end 
 
 def play(board)
-  name = gets.chomp
- turn(board) until over?(board)
+    input = gets.chomp
+   turn(board) until over?(board)
   #turn
 #end
 
 if won?(board)
-  puts "Congratulations. You won the game"
-else over?(board)
-  puts "It is a draw"
+  puts "Congratulations #{winner(board)}!"
+elsif draw?(board)
+  puts "Cat\'s Game!"
 end
 end
 
